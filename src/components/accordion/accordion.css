@@ -1,0 +1,167 @@
+/*
+ * Accordion component from the Designer to Builder Figma file.
+ * Every colour, radius and padding comes from a token in src/tokens/tokens.css.
+ * Open and closed states are styled with the native [open] attribute, so no
+ * JavaScript is needed.
+ */
+
+/* Page frame — Figma "Page -> Light" and "Page -> Dark". */
+.example {
+  padding: 80px;
+  background: var(--background-page);
+}
+
+/* Section — Figma uses a token here so light and dark differ deliberately. */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 48px;
+  background: var(--component-accordion-background-section);
+  border-radius: var(--radius-base);
+}
+
+.faq__heading {
+  margin: 0;
+  font-family: var(--typography-heading-font-family);
+  font-weight: var(--typography-heading-font-weight);
+  font-size: var(--typography-heading-font-size);
+  line-height: var(--typography-heading-line-height);
+  letter-spacing: var(--typography-heading-letter-spacing);
+  color: var(--foreground-brand-primary);
+}
+
+/* Accordion — Figma "Slot", which carries the spacing between items. */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Accordion item — the card. */
+.accordion__item {
+  overflow: hidden;
+  background: var(--background-base);
+  border: var(--border-width) solid var(--component-accordion-border);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-lift-x) var(--shadow-lift-y) var(--shadow-lift-blur)
+    var(--shadow-lift-spread) var(--shadow-lift-color);
+}
+
+.accordion__item[open] {
+  border-color: var(--component-accordion-border-active);
+}
+
+/* Accordion title — the summary is the clickable row. */
+.accordion__title {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: var(--padding-base) var(--padding-loose) var(--padding-base)
+    var(--padding-base);
+  background: var(--component-accordion-background);
+  color: var(--component-accordion-foreground);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+
+  /*
+   * The closed state carries a transparent border of the same width as the
+   * open state, so opening an item does not shift the layout.
+   */
+  border-bottom: var(--border-width) solid transparent;
+}
+
+/*
+ * Hide the browser's default disclosure triangle. All three rules are needed:
+ * list-style stops applying once the summary is a flex container, so older
+ * versions of Safari rely on the -webkit rule.
+ */
+.accordion__title {
+  list-style: none;
+}
+
+.accordion__title::-webkit-details-marker {
+  display: none;
+}
+
+.accordion__title::marker {
+  content: "";
+}
+
+.accordion__item[open] > .accordion__title {
+  background: var(--component-accordion-background-active);
+  color: var(--component-accordion-foreground-active);
+  border-bottom-color: var(--component-accordion-border-active);
+}
+
+/* The card clips its content, so the focus ring is drawn just inside the edge. */
+.accordion__title:focus-visible {
+  outline: 2px solid var(--border-brand);
+  outline-offset: -2px;
+}
+
+/*
+ * Chevron. The path is Figma's exported vector, drawn with currentColor so it
+ * follows the title colour in both themes. Figma supplies a mirrored asset for
+ * the open state; rotating the same path by half a turn gives the same result.
+ */
+.accordion__chevron {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  transition: transform 150ms ease;
+}
+
+.accordion__item[open] .accordion__chevron {
+  transform: rotate(180deg);
+}
+
+.accordion__label {
+  flex: 1;
+  font-family: var(--typography-body-strong-font-family);
+  font-weight: var(--typography-body-strong-font-weight);
+  font-size: var(--typography-body-strong-font-size);
+  letter-spacing: var(--typography-body-strong-letter-spacing);
+
+  /* Figma sets the title to the heading line height, not the body one. */
+  line-height: var(--typography-heading-line-height);
+}
+
+/* Accordion body. */
+.accordion__body {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: var(--padding-loose) var(--padding-loose) var(--padding-loose)
+    var(--padding-base);
+  background: var(--component-accordion-background);
+}
+
+/* Figma places an empty block here so body text lines up with the title text. */
+.accordion__spacer {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.accordion__text {
+  flex: 1;
+  margin: 0;
+  font-family: var(--typography-body-font-family);
+  font-weight: var(--typography-body-font-weight);
+  font-size: var(--typography-body-font-size);
+  line-height: var(--typography-body-line-height);
+  letter-spacing: var(--typography-body-letter-spacing);
+  color: var(--foreground-default-secondary);
+}
+
+@media (max-width: 560px) {
+  .example {
+    padding: 24px;
+  }
+
+  .faq {
+    padding: 24px;
+  }
+}
