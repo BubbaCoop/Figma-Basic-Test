@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Accordion component preview</title>
+    <link rel="stylesheet" href="../../tokens/tokens.css">
+    <link rel="stylesheet" href="accordion.css">
+    <style>
+      /* Preview page only. The component itself is styled in accordion.css. */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--background-page);
+        color: var(--foreground-default-primary);
+        font-family: var(--typography-body-font-family);
+      }
+
+      main {
+        max-width: 800px;
+        margin: 48px auto;
+        padding: 0 16px;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: var(--typography-heading-large-font-family);
+        font-weight: var(--typography-heading-large-font-weight);
+        font-size: var(--typography-heading-large-font-size);
+        line-height: var(--typography-heading-large-line-height);
+        letter-spacing: var(--typography-heading-large-letter-spacing);
+      }
+
+      .preview__label {
+        margin: 32px 0 8px;
+        font-family: var(--typography-body-small-strong-font-family);
+        font-weight: var(--typography-body-small-strong-font-weight);
+        font-size: var(--typography-body-small-strong-font-size);
+        line-height: var(--typography-body-small-strong-line-height);
+        color: var(--foreground-default-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Accordion</h1>
+
+      <h2 class="preview__label">Page &rarr; Light</h2>
+      <div class="example" data-theme="light">
+        <div class="faq">
+          <h3 class="faq__heading">Frequently asked questions</h3>
+          <div class="accordion">
+            <details class="accordion__item" open>
+              <summary class="accordion__title">
+                <svg class="accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="accordion__label">Shipping Information</span>
+              </summary>
+              <div class="accordion__body">
+                <span class="accordion__spacer" aria-hidden="true"></span>
+                <p class="accordion__text">We offer worldwide shipping with delivery times ranging from 3 to 10 business days depending on your location. Orders over $75 qualify for free standard shipping. Expedited options are available at checkout.</p>
+              </div>
+            </details>
+            <details class="accordion__item">
+              <summary class="accordion__title">
+                <svg class="accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="accordion__label">Return Policy</span>
+              </summary>
+            </details>
+            <details class="accordion__item">
+              <summary class="accordion__title">
+                <svg class="accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="accordion__label">Payment Methods</span>
+              </summary>
+            </details>
+            <details class="accordion__item">
+              <summary class="accordion__title">
+                <svg class="accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="accordion__label">Customer Support</span>
+              </summary>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="preview__label">Page &rarr; Dark</h2>
+      <div class="example" data-theme="dark">
+        <div class="faq">
+          <h3 class="faq__heading">Frequently asked questions</h3>
+          <div class="accordion">
+            <details class="accordion__item" open>
+              <summary class="accordion__title">
+                <svg class="accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="accordion__label">Shipping Information</span>
+              </summary>
+              <div class="accordion__body">
+                <span class="accordion__spacer" aria-hidden="true"></span>
+                <p class="accordion__text">We offer worldwide shipping with delivery times ranging from 3 to 10 business days depending on your location. Orders over $75 qualify for free standard shipping. Expedited options are available at checkout.</p>
+              </div>
+            </details>
+            <details class="accordion__item">
+              <summary class="accordion__title">
+                <svg class="accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="accordion__label">Return Policy</span>
+              </summary>
+            </details>
+            <details class="accordion__item">
+              <summary class="accordion__title">
+                <svg class="accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="accordion__label">Payment Methods</span>
+              </summary>
+            </details>
+            <details class="accordion__item">
+              <summary class="accordion__title">
+                <svg class="accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="accordion__label">Customer Support</span>
+              </summary>
+            </details>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
